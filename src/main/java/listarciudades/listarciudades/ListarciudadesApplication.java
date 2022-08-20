@@ -16,7 +16,12 @@ public class ListarciudadesApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		System.out.print("Buenas noches a todos!");
+		String sql = "INSERT INTO Tercero(id, Documento, IdTipoDocumento, Nombre, Direccion, Telefono, IdCiudad, Correo) VALUES (nextval('tercero_id'), '44567489','13','Andrea Cifue','cll 24 80 33','34578954','5001','correo@correo.com')"; 
+		int filas = jdbcTemplate.update(sql);
+        if (filas > 0) {
+            System.out.println("Se agregó un nuevo tercero.");
+        }
+	
 		
 	}
 
